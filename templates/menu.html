@@ -1,0 +1,16 @@
+{% load menu_tags %}
+
+{% for child in children %}
+  <div class="item_child_qr leprikon-nav{% if child.selected %} active{% endif %}{% if child.ancestor %} ancestor{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %}">
+    <div class="hd">
+      <h2 class="delta">
+        <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" class="js-block-click-link">{{ child.get_menu_title }}</a>
+      </h2>
+    </div>
+  </div>
+  {% if child.children %}
+    <div style="padding-left: 15px;">
+        {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+    </div>
+  {% endif %}
+{% endfor %}

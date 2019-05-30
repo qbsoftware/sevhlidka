@@ -1,0 +1,3 @@
+#!/bin/bash
+
+letsencrypt certonly --webroot -w /srv/letsencrypt/htdocs -d is.sevhlidka.cz

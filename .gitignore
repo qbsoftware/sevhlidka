@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+*.swp
+*~
+/.ipython
+/data
+/dkim
+/docker-compose.override.yml
+/media
+/mysql*

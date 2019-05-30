@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+DATE=$(date '+%Y%m%d-%H%M')
+
+docker-compose exec mysql sh -c 'exec mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" $MYSQL_DATABASE' | gzip > dump-$DATE.sql.gz

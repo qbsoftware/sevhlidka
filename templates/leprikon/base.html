@@ -1,0 +1,163 @@
+{% load i18n cache cms_tags menu_tags leprikon_tags rocketchat sekizai_tags staticfiles ganalytics %}
+<!DOCTYPE HTML>
+<html xmlns:og="http://ogp.me/ns#" lang="cs" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}{% endblock %} {% include 'leprikon/title.txt' %}</title>
+  <meta name="description" content="{% block meta_description %}{% endblock %}" />
+  <meta name="author" content="Zoo Brno" />
+  <meta name="generator" content="Leprikón, django CMS" />
+  <meta name="robots" content="index, follow" />
+  <!--[if IE]><link rel="shortcut icon" href="https://www.sevhlidka.cz/favicon.ico" /><![endif]-->
+  <link rel="icon" sizes="16x16"   href="https://www.sevhlidka.cz/img/default/favicon-16.png" />
+  <link rel="icon" sizes="32x32"   href="https://www.sevhlidka.cz/img/default/favicon-32.png" />
+  <link rel="icon" sizes="48x48"   href="https://www.sevhlidka.cz/img/default/favicon-48.png" />
+  <link rel="icon" sizes="64x64"   href="https://www.sevhlidka.cz/img/default/favicon-64.png" />
+  <link rel="icon" sizes="128x128" href="https://www.sevhlidka.cz/img/default/favicon-128.png" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'leprikon/lib/bootstrap/css/bootstrap.min.css' %}"/>
+
+  <style type="text/css" media="screen,projection,tv">
+    html, body { margin-top: 0; padding-top: 0; }
+    .page-header { margin: 0; padding-bottom: 0; border-bottom: 0; }
+    .panel { background-color: transparent; }
+    .cms-toolbar-item-logo img { height: 45px; }
+    .btn.btn-primary { color: white; text-decoration: none; }
+    .multiselect-container.dropdown-menu input { display: none; }
+    .item_child_qr.leprikon-nav { margin-top: 0; margin-bottom: 5px; }
+    .item_child_qr.leprikon-nav .hd { padding: 10px 40px 10px 20px; }
+  </style>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  {% cache 300 stylesheet %}{% upstream 'https://www.sevhlidka.cz/' '//link[@rel="stylesheet"]' %}{% endcache %}
+  {% render_block "css" %}
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static 'leprikon/lib/jquery.min.js' %}"></script>
+
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static 'leprikon/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  {% if backends %}
+  <!-- Bootstrap social -->
+  <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/font-awesome/css/font-awesome.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/bootstrap-social.min.css' %}"/>
+  {% endif %}
+</head>
+<body class="module-content two-cols-right">
+{% cms_toolbar %}
+  <!--aside class="neutral box cookies_checking_box z-i-7 js-cookie-consent-container">
+    <div class="bd">
+      <div class="row flex-row">
+        <div class="item-flex">
+          <span class="cookies_agree_text">Provozovatel na tomto webu zpracovává cookies potřebné pro fungování webových stránek, analytické účely a marketing.</span>
+                      <a href="https://www.sevhlidka.cz/get/cs/plugins/lang-array/get?key=gdpr_agreement_cookies" class="reader">Více informací</a>
+                  </div>
+        <div class="item-flex none">
+          <span class="icon-close js-cookie-consent-agree cookie_disag"></span>
+        </div>
+      </div>
+    </div>
+  </aside-->
+<div id="page">
+{% cache 300 page-header %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-header"]' %}{% endcache %}
+<div id="page-body" class="page-body">
+<div class="page-shadow">
+<div class="row">
+<div class="column size1of1">
+<div class="page-container beige">
+ <div id="js-off-canvas" class="row w768-lock off-canvas">
+ <div class="mainbar column  size3of5 _w768-size2of3 print-size1of1 apply-colors-h1-a">
+{% cache 300 page-header-mobile %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-header-mobile"]' %}{% endcache %}
+<div id="main" class="main-col">
+<div class="growl">
+        </div>
+<div class="element article full mod">
+<div class="bd">
+<div class="content">
+{% block content %}{% endblock %}
+</div>
+<div class="ft">
+</div>
+</div>
+</div>
+</div>
+ </div>
+  <div class="right sidebar column size2of5 _w768-size2of7 print-size1of1">
+<div id="right-col" class="right-col zeta">
+<div class="row gap-0_5x panel">
+  <div class="hd heading">
+  <div class="row mobile-lock">
+    <div class="column size1of2 ">
+      {% if request.user.is_authenticated %}
+      <h3 class="header">Uživatel</h3>
+      <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              {{ request.user.get_full_name | default:request.user.get_username }}
+              <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="user_menu">
+              <li><a href="{% url_with_back 'leprikon:user_update' %}">{% trans 'Edit' %}</a></li>
+              <li><a href="{% url_with_back 'leprikon:user_email' %}">{% trans 'Change e-mail' %}</a></li>
+              <li><a href="{% url_with_back 'leprikon:user_password' %}">{% trans 'Change password' %}</a></li>
+              <li><a href="{% url_with_back 'leprikon:user_logout' %}">{% trans 'Log out' %}</a></li>
+              {% if 'google-plus' in backends.not_associated %}
+              <li>
+                  <a href="{% url 'social:begin' 'google-plus' %}?next={{ next }}">
+                      <button class="btn btn-block btn-sm btn-social btn-google">
+                          <i class="fa fa-google pull-left"></i>
+                          {% trans 'Link with your Google account' %}
+                      </button>
+                  </a>
+              </li>
+              {% endif %}
+              {% if 'facebook' in backends.not_associated %}
+              <li>
+                  <a href="{% url 'social:begin' 'facebook' %}?next={{ next }}">
+                      <button class="btn btn-social btn-sm btn-facebook">
+                          <i class="fa fa-facebook pull-left"></i>
+                          {% trans 'Link with your Facebook account' %}
+                      </button>
+                  </a>
+              </li>
+              {% endif %}
+          </ul>
+      </div>
+      {% endif %}
+    </div>
+    <div class="column size1of2 text-right">
+        <h3 class="header">Školní rok</h3>
+        {% school_year_form %}
+    </div>
+  </div>
+  </div>
+</div>
+<div class="row gap-0_5x">
+  <div class="mod">
+  {% show_menu_below_id 'leprikon' 0 100 0 1 'menu.html' %}
+  </div>
+</div>
+ </div>
+ </div>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+{% cache 300 page-footerx %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-footer"]' %}{% endcache %}
+</div>
+  {% render_block "js" %}
+
+  {% livechat %}
+</body>
+<!-- generated by Leprikón -->
+</html>

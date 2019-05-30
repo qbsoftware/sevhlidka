@@ -1,0 +1,82 @@
+version: '3.4'
+services:
+
+  leprikon:
+    image: misli/sevhlidka
+    build: .
+    depends_on:
+      - memcached
+      - mysql
+      - smtp
+    environment:
+      SECRET_KEY: secretkey
+      DATABASE_ENGINE: django.db.backends.mysql
+      DATABASE_HOST: ''
+      DATABASE_NAME: sevhlidka
+      DATABASE_PASSWORD: dbpassword
+      DATABASE_USER: sevhlidka
+      EMAIL_HOST: smtp
+      EMAIL_HOST_PASSWORD: emailpassword
+      EMAIL_HOST_USER: sevhlidka
+      EMAIL_SUBJECT_PREFIX: '[SEV Hlídka]'
+      MEMCACHED_KEY_PREFIX: sevhlidka
+      MEMCACHED_LOCATION: memcached:11211
+      ROCKETCHAT_URL: https://chat.sevhlidka.cz
+      SERVER_EMAIL: '"SEV Hlídka" <vzdelavanisev@zoobrno.cz>'
+    ports:
+      - 80:80
+    volumes:
+      - ./.ipython:/root/.ipython
+      - ./data:/app/data
+      - ./media:/app/htdocs/media
+      - mysql:/var/run/mysqld
+
+  memcached:
+    image: memcached
+
+  mongo:
+    image: mongo:3-jessie
+    command: mongod --smallfiles --oplogSize 128 --replSet rs0
+    volumes:
+      - /tmp
+      - ./mongo:/data/db
+
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: sevhlidka
+      MYSQL_PASSWORD: dbpassword
+      MYSQL_ROOT_PASSWORD: rootdbpassword
+      MYSQL_USER: sevhlidka
+    volumes:
+      - mysql:/var/run/mysqld
+      - ./mysql:/var/lib/mysql
+
+  rocketchat:
+    image: rocketchat/rocket.chat
+    command: bash -c 'for i in `seq 1 30`; do node main.js && s=$$? && break || s=$$?; echo "Tried $$i times. Waiting 5 secs..."; sleep 5; done; (exit $$s)'
+    depends_on:
+      - mongo
+      - smtp
+    environment:
+      MONGO_URL: mongodb://mongo:27017/rocketchat
+      MONGO_OPLOG_URL: mongodb://mongo:27017/local
+      PORT: '3000'
+      ROOT_URL: https://chat.sevhlidka.cz
+    ports:
+    - 127.0.0.1:3000:3000/tcp
+    volumes:
+    - ./uploads:/app/uploads
+
+  smtp:
+    image: catatnight/postfix
+    environment:
+      maildomain: zoobrno.cz
+      smtp_user: sevhlidka:emailpassword
+    stdin_open: true
+    volumes:
+    - ./dkim:/etc/opendkim/domainkeys
+    tty: true
+
+volumes:
+  mysql:
