@@ -19,6 +19,18 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="{% static 'leprikon/lib/bootstrap/css/bootstrap.min.css' %}"/>
 
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  {% cache 300 stylesheet %}{% upstream 'https://www.sevhlidka.cz/' '//link[@rel="stylesheet"]' %}{% endcache %}
+  <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/css/layout.css' %}"/>
+  <!--link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/css/colors.css' %}"/-->
+  {% render_block "css" %}
+
   <style type="text/css" media="screen,projection,tv">
     html, body { margin-top: 0; padding-top: 0; }
     .page-header { margin: 0; padding-bottom: 0; border-bottom: 0; }
@@ -28,17 +40,8 @@
     .multiselect-container.dropdown-menu input { display: none; }
     .item_child_qr.leprikon-nav { margin-top: 0; margin-bottom: 5px; }
     .item_child_qr.leprikon-nav .hd { padding: 10px 40px 10px 20px; }
+    .box { border: none; }
   </style>
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  {% cache 300 stylesheet %}{% upstream 'https://www.sevhlidka.cz/' '//link[@rel="stylesheet"]' %}{% endcache %}
-  {% render_block "css" %}
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="{% static 'leprikon/lib/jquery.min.js' %}"></script>
@@ -75,7 +78,7 @@
 <div class="column size1of1">
 <div class="page-container beige">
  <div id="js-off-canvas" class="row w768-lock off-canvas">
- <div class="col-sm-9 apply-colors-h1-a">
+ <div class="col-sm-8 apply-colors-h1-a">
 {% cache 300 page-header-mobile %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-header-mobile"]' %}{% endcache %}
 <div id="main" class="main-col">
 <div class="growl">
@@ -91,7 +94,7 @@
 </div>
 </div>
  </div>
-  <div class="col-sm-3">
+  <div class="col-sm-4">
 <div id="right-col" class="right-col zeta">
 <div class="row gap-0_5x panel">
   <div class="hd heading">
