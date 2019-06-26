@@ -28,7 +28,11 @@
 
   {% cache 300 stylesheet %}{% upstream 'https://www.sevhlidka.cz/' '//link[@rel="stylesheet"]' %}{% endcache %}
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/css/layout.css' %}"/>
-  <!--link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/css/colors.css' %}"/-->
+  {% if backends %}
+  <!-- Bootstrap social -->
+  <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/font-awesome/css/font-awesome.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/bootstrap-social.min.css' %}"/>
+  {% endif %}
   {% render_block "css" %}
 
   <style type="text/css" media="screen,projection,tv">
@@ -36,7 +40,8 @@
     .page-header { margin: 0; padding-bottom: 0; border-bottom: 0; }
     .panel { background-color: transparent; }
     .cms-toolbar-item-logo img { height: 45px; }
-    .btn.btn-primary { color: white; text-decoration: none; }
+    .btn.btn-primary { color: white !important; text-decoration: none; background-color: #a93203; border-color: #bf3904; }
+    .btn.btn-primary:active, .btn-primary:focus, .btn-primary:hover { background-color: #bf3904 !important; border-color: #bf3904 !important; }
     .multiselect-container.dropdown-menu input { display: none; }
     .item_child_qr.leprikon-nav { margin-top: 0; margin-bottom: 5px; }
     .item_child_qr.leprikon-nav .hd { padding: 10px 40px 10px 20px; }
@@ -48,12 +53,6 @@
 
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="{% static 'leprikon/lib/bootstrap/js/bootstrap.min.js' %}"></script>
-
-  {% if backends %}
-  <!-- Bootstrap social -->
-  <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/font-awesome/css/font-awesome.min.css' %}"/>
-  <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/bootstrap-social.min.css' %}"/>
-  {% endif %}
 </head>
 <body class="module-content two-cols-right">
 {% cms_toolbar %}
