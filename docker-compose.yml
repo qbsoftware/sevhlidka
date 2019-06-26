@@ -23,6 +23,7 @@ services:
       MEMCACHED_LOCATION: memcached:11211
       ROCKETCHAT_URL: https://chat.sevhlidka.cz
       SERVER_EMAIL: '"SEV Hlídka" <vzdelavanisev@zoobrno.cz>'
+      LEPRIKON_VARIABLE_SYMBOL_EXPRESSION: '50000000 + reg.subject.subject_type_id * 1000000 + (reg.created.year % 100) * 10000 + (reg.id % 10000)'
     ports:
       - 80:80
     volumes:
