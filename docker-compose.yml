@@ -21,7 +21,7 @@ services:
       EMAIL_SUBJECT_PREFIX: '[SEV Hlídka]'
       MEMCACHED_KEY_PREFIX: sevhlidka
       MEMCACHED_LOCATION: memcached:11211
-      ROCKETCHAT_URL: https://chat.sevhlidka.cz
+      ROCKETCHAT_URL: https://chat.zoobrno.leprikon.cz
       SERVER_EMAIL: '"SEV Hlídka" <vzdelavanisev@zoobrno.cz>'
       LEPRIKON_VARIABLE_SYMBOL_EXPRESSION: '50000000 + reg.subject.subject_type_id * 1000000 + (reg.created.year % 100) * 10000 + (reg.id % 10000)'
     ports:
@@ -35,13 +35,6 @@ services:
   memcached:
     image: memcached
 
-  mongo:
-    image: mongo:3-jessie
-    command: mongod --smallfiles --oplogSize 128 --replSet rs0
-    volumes:
-      - /tmp
-      - ./mongo:/data/db
-
   mysql:
     image: mariadb
     environment:
@@ -52,22 +45,6 @@ services:
     volumes:
       - mysql:/var/run/mysqld
       - ./mysql:/var/lib/mysql
-
-  rocketchat:
-    image: rocketchat/rocket.chat
-    command: bash -c 'for i in `seq 1 30`; do node main.js && s=$$? && break || s=$$?; echo "Tried $$i times. Waiting 5 secs..."; sleep 5; done; (exit $$s)'
-    depends_on:
-      - mongo
-      - smtp
-    environment:
-      MONGO_URL: mongodb://mongo:27017/rocketchat
-      MONGO_OPLOG_URL: mongodb://mongo:27017/local
-      PORT: '3000'
-      ROOT_URL: https://chat.sevhlidka.cz
-    ports:
-    - 127.0.0.1:3000:3000/tcp
-    volumes:
-    - ./uploads:/app/uploads
 
   smtp:
     image: catatnight/postfix
