@@ -57,22 +57,10 @@
 </head>
 <body class="module-content two-cols-right">
 {% cms_toolbar %}
-  <!--aside class="neutral box cookies_checking_box z-i-7 js-cookie-consent-container">
-    <div class="bd">
-      <div class="row flex-row">
-        <div class="item-flex">
-          <span class="cookies_agree_text">Provozovatel na tomto webu zpracovává cookies potřebné pro fungování webových stránek, analytické účely a marketing.</span>
-                      <a href="https://www.sevhlidka.cz/get/cs/plugins/lang-array/get?key=gdpr_agreement_cookies" class="reader">Více informací</a>
-                  </div>
-        <div class="item-flex none">
-          <span class="icon-close js-cookie-consent-agree cookie_disag"></span>
-        </div>
-      </div>
-    </div>
-  </aside-->
 <div id="page">
 {% cache 300 page-header %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-header"]' %}{% endcache %}
 <div id="page-body" class="page-body">
+{% include 'leprikon/modal_messages.html' %}
 <div class="page-shadow">
 <div class="row">
 <div class="column size1of1">
@@ -123,7 +111,7 @@
 </div>
 </div>
 </div>
-{% cache 300 page-footerx %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-footer"]' %}{% endcache %}
+{% cache 300 page-footer %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-footer"]' %}{% endcache %}
 </div>
   {% render_block "js" %}
 
