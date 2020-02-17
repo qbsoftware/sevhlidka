@@ -9,7 +9,6 @@ services:
       - mysql
       - smtp
     environment:
-      SECRET_KEY: secretkey
       DATABASE_ENGINE: django.db.backends.mysql
       DATABASE_HOST: ''
       DATABASE_NAME: sevhlidka
@@ -19,14 +18,13 @@ services:
       EMAIL_HOST_PASSWORD: emailpassword
       EMAIL_HOST_USER: sevhlidka
       EMAIL_SUBJECT_PREFIX: '[SEV Hlídka]'
-      MEMCACHED_KEY_PREFIX: sevhlidka
-      MEMCACHED_LOCATION: memcached:11211
-      SERVER_EMAIL: '"SEV Hlídka" <vzdelavanisev@zoobrno.cz>'
       LEPRIKON_VARIABLE_SYMBOL_EXPRESSION: '50000000 + reg.subject.subject_type_id * 1000000 + (reg.created.year % 100) * 10000 + (reg.id % 10000)'
+      MEMCACHED_LOCATION: memcached:11211
+      SECRET_KEY: secretkey
+      SERVER_EMAIL: '"SEV Hlídka" <vzdelavanisev@zoobrno.cz>'
     ports:
-      - 80:80
+      - 127.0.0.1:10051:80
     volumes:
-      - ./.ipython:/root/.ipython
       - ./data:/app/data
       - ./media:/app/htdocs/media
       - mysql:/var/run/mysqld
@@ -52,7 +50,7 @@ services:
       smtp_user: sevhlidka:emailpassword
     stdin_open: true
     volumes:
-    - ./dkim:/etc/opendkim/domainkeys
+      - ./dkim:/etc/opendkim/domainkeys
     tty: true
 
 volumes:
