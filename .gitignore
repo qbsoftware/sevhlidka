@@ -1,6 +1,7 @@
-/.ipython/
-/data/
-/dkim/
-/docker-compose.override.yml
-/media/
+/data
+/dkim
+/docker-compose.*.yml
+/media
+/mongo*
 /mysql*
+/uploads
