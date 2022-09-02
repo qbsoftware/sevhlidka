@@ -1,7 +1,13 @@
+*.pyc
+*.pyo
+*.swp
+*~
 /data
 /dkim
 /docker-compose.*.yml
 /media
 /mysql*
 /redis*
+/run
+/static
 /uploads
