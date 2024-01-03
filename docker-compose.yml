@@ -1,7 +1,7 @@
 version: '3.4'
 
 x-leprikon: &leprikon
-  image: misli/sevhlidka
+  image: qbsoftware/sevhlidka
   depends_on:
     - mysql
     - redis
