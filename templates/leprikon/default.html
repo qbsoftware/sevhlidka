@@ -114,7 +114,9 @@
 </div>
 </div>
 </div>
-{% cache 300 page-footer %}{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-footer"]' %}{% endcache %}
+{% cache 300 page-footer %}
+{% upstream 'https://www.sevhlidka.cz/' '//div[@id="page-footer"]' '|<a href="http://www.apilot.cz" title="Platforma aPilot" rel="nofollow" class="contents">Platforma aPilot</a>|<a href="https://leprikon.cz/" title="Informační systém pro zájmové vzdělávání Leprikón" rel="nofollow" class="contents">Leprikón</a>|' %}
+{% endcache %}
 </div>
 {% render_block "js" %}
 </body>
