@@ -14,7 +14,7 @@ x-leprikon: &leprikon
     DATABASE_PASSWORD: dbpassword
     EMAIL_HOST: smtprelay
     EMAIL_SUBJECT_PREFIX: '[SEV Hlídka]'
-    LEPRIKON_VARIABLE_SYMBOL_EXPRESSION: '50000000 + reg.subject.subject_type_id * 1000000 + (reg.created.year % 100) * 10000 + (reg.id % 10000)'
+    LEPRIKON_VARIABLE_SYMBOL_EXPRESSION: '50000000 + reg.activity.activity_type_id * 1000000 + (reg.created.year % 100) * 10000 + (reg.id % 10000)'
     CACHE_LOCATION: unix:///var/run/redis/redis.sock
     SECRET_KEY: secretkey
     SENTRY_ENVIRONMENT: 'sevhlidka'
