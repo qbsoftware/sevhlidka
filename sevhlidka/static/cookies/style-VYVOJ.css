@@ -1,0 +1,539 @@
+body.noscroll {
+    overflow: hidden
+}
+
+body.noscroll {
+    overflow: hidden
+}
+
+#cookiesAdv,
+#cookiesAdvSettings {
+    bottom: 0;
+    font-family: Inter, Arial, Tahoma, Helvetica, sans-serif;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 999;
+}
+
+#cookiesAdv *,
+#cookiesAdvSettings * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+#cookiesAdv button.btn0,
+#cookiesAdvSettings button.btn0,
+#cookiesAdv button.btn1,
+#cookiesAdvSettings button.btn1 {
+    display: block;
+    margin-bottom: 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#cookiesAdv button.btn0,
+#cookiesAdv button.btn1 {
+    width: 100%;
+}
+
+#cookiesAdv a {
+    color: #245745
+}
+
+#cookiesAdv {
+    background: #FCFAF8;
+    border-top: 1px dashed #245745;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+#cookiesAdv .in {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: nowrap;
+    flex-flow: nowrap;
+}
+
+#cookiesAdv strong.caTitle {
+    color: #000;
+    display: block;
+    font-weight: 600;
+    line-height: 29px;
+}
+
+#cookiesAdv .btn-item {
+    text-align: center;
+}
+
+#cookiesAdv .btn-item button {
+    background-color: transparent;
+    color: #245745;
+    text-decoration: underline;
+}
+
+#cookiesAdvSettings {
+    background: rgba(0, 0, 0, .5);
+    top: 0
+}
+
+#cookiesAdvSettings div.content {
+    background: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 22px;
+    position: relative
+}
+
+#cookiesAdvSettings div.content div.cahead {
+    height: 60px;
+    position: relative
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line:after,
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line:before,
+#cookiesAdvSettings div.content div.cahead:after,
+#cookiesAdvSettings div.content div.cahead:before {
+    content: "";
+    display: table
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line:after,
+#cookiesAdvSettings div.content div.cahead:after {
+    clear: both
+}
+
+#cookiesAdvSettings div.content div.cahead img.logo {
+    display: block;
+    left: 20px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+#cookiesAdvSettings div.content div.cahead button.close {
+    background-color: transparent;
+    display: block;
+    float: right;
+    height: 20px;
+    margin: 20px;
+    position: relative;
+    width: 20px
+}
+
+#cookiesAdvSettings div.content div.cahead button.close:after,
+#cookiesAdvSettings div.content div.cahead button.close:before {
+    background: #6B6B6F;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 10px;
+    width: 20px
+}
+
+#cookiesAdvSettings div.content div.cahead button.close:before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+#cookiesAdvSettings div.content div.cahead button.close:after {
+    border: 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote label span,
+#cookiesAdvSettings div.content div.cabody .cookiescontrols>div.read .line em:before,
+#cookiesAdvSettings div.content div.cahead button.close em {
+    display: none
+}
+
+#cookiesAdvSettings div.content div.cabody {
+    border-bottom: 1px solid #e9e9e9;
+    border-top: 1px solid #e9e9e9;
+    bottom: 80px;
+    color: #333;
+    overflow-y: scroll;
+    padding: 20px 20px 0;
+    position: absolute;
+    top: 60px
+}
+
+#cookiesAdvSettings div.content div.cabody strong.caTitle {
+    color: #414141;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    padding-bottom: 18px
+}
+
+#cookiesAdvSettings div.content div.cabody strong.caMain {
+    color: #414141;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px
+}
+
+#cookiesAdvSettings div.content div.cabody p {
+    text-align: justify
+}
+
+#cookiesAdvSettings div.content div.cabody a {
+    color: #6B6B6F
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols {
+    padding-top: 20px
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols>div:not(:last-of-type) {
+    border-bottom: 1px solid #e9e9e9
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line {
+    cursor: pointer;
+    padding: 20px
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line em {
+    float: left;
+    height: 10px;
+    left: 0;
+    margin-right: 20px;
+    position: relative;
+    top: 10px;
+    width: 10px
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line em:after,
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line em:before {
+    background: #555;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    width: 10px
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line em:before {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line h4 {
+    float: left
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote {
+    color: #6B6B6F;
+    float: right
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote.disabled {
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: .5;
+    filter: 50
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote.disabled label {
+    cursor: default
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote input {
+    left: -99999px;
+    position: absolute
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote label {
+    background-color: #f2f1f1;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: block;
+    height: 25px;
+    position: relative;
+    width: 45px;
+    -webkit-transition: background .5s ease-out;
+    -moz-transition: background .5s ease-out;
+    -ms-transition: background .5s ease-out;
+    -o-transition: background .5s ease-out;
+    transition: background .5s ease-out;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote label:before {
+    background-color: #7d7d7d;
+    bottom: 1px;
+    content: '';
+    display: block;
+    height: 21px;
+    position: absolute;
+    width: 21px;
+    -moz-transition: background .5s ease-out;
+    -o-transition: background .5s ease-out;
+    -webkit-transition: background .5s ease-out;
+    -ms-transition: background .5s ease-out;
+    transition: background .5s ease-out;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote input[type=checkbox]:checked~label {
+    background-color: #6db131;
+    border: 1px solid #6db131
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote input[type=checkbox]:checked~label:before {
+    background-color: #fff;
+    transform: translateX(20px)
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .line .remote input[type=checkbox].focus~label {
+    outline-offset: 0;
+    outline: 2px solid #0060df;
+}
+
+#cookiesAdvSettings div.content div.cabody .cookiescontrols .text {
+    padding: 0 20px 20px;
+    text-align: justify
+}
+
+#cookiesAdvSettings div.content div.cafoot {
+    bottom: 0;
+    height: 80px;
+    padding: 20px;
+    position: absolute;
+    width: 100%
+}
+
+@media screen and (max-width:400px) {
+
+    #cookiesAdvSettings button.btn0,
+    #cookiesAdvSettings button.btn1 {
+        width: 100%
+    }
+
+    #cookiesAdvSettings button.btn0 {
+        margin-top: 10px
+    }
+
+    #cookiesAdvSettings div.content div.cabody {
+        bottom: 130px
+    }
+
+    #cookiesAdvSettings div.content div.cafoot {
+        height: 130px;
+    }
+}
+
+@media screen and (min-width:401px) {
+    #cookiesAdvSettings button.btn0 {
+        float: right;
+        margin-right: 20px
+    }
+
+    #cookiesAdvSettings button.btn1 {
+        float: right
+    }
+}
+
+@media screen and (max-width:500px) {
+    #cookiesAdvSettings div.content {
+        height: 96%;
+        margin: 2%;
+        width: 96%
+    }
+
+    #cookiesAdvSettings div.content div.cabody .cookiescontrols .line {
+        padding: 20px 0
+    }
+}
+
+@media screen and (min-width:501px) {
+    #cookiesAdvSettings div.content {
+        height: 60%;
+        left: 50%;
+        max-height: 70%;
+        max-width: 670px;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%
+    }
+}
+
+@media screen and (max-width:767px) {
+    #cookiesAdv {
+        -webkit-box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    #cookiesAdv .in {
+        flex-direction: column;
+        gap: 16px 0;
+        max-height: 100vh;
+        padding: 0;
+    }
+
+    #cookiesAdv .cookies-info {
+        overflow: auto;
+        width: 100%;
+    }
+
+    #cookiesAdv .cookies-info-content {
+        margin: 0 auto;
+        max-width: 500px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 25px;
+        text-align: center;
+    }
+
+    #cookiesAdv .btns {
+        width: 100%;
+    }
+
+    #cookiesAdv .btns .btns-content {
+        flex-shrink: 0;
+        margin: 0 auto;
+        max-width: 300px;
+        padding: 0 14px 25px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    #cookiesAdv .in {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    #cookiesAdv .cookies-info {
+        width: 100%;
+    }
+
+    #cookiesAdv .cookies-info-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    #cookiesAdv .cookies-info-content::before {
+        background-image: url(./images/icons/cookies.svg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        content: "";
+        left: 0;
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+    }
+
+    #cookiesAdv .btns {
+        flex-shrink: 0;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+    #cookiesAdv .in {
+        gap: 0 30px;
+        padding-bottom: 25px;
+        padding-top: 25px;
+    }
+
+    #cookiesAdv .cookies-info-content {
+        padding-left: 80px;
+    }
+
+    #cookiesAdv .cookies-info-content::before {
+        background-size: 60px 60px;
+        height: 60px;
+        margin-top: -30px;
+        width: 60px;
+    }
+}
+
+@media screen and (max-width:1023px) {
+    #cookiesAdv {
+        -webkit-box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.08)
+    }
+
+    #cookiesAdv strong.caTitle {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #cookiesAdv {
+        -webkit-box-shadow: 0 0 120px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: 0 0 120px 0 rgba(0, 0, 0, 0.08)
+    }
+
+    #cookiesAdv .cookies-info-content::before {
+        background-size: 80px 80px;
+        height: 80px;
+        margin-top: -40px;
+        width: 80px;
+    }
+
+    #cookiesAdv strong.caTitle {
+        font-size: 24px;
+        padding-bottom: 16px;
+    }
+
+    #cookiesAdv .btn-item button:hover {
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1615px) {
+    #cookiesAdv .in {
+        gap: 0 80px;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+
+    #cookiesAdv .cookies-info-content {
+        padding-left: 110px;
+    }
+}
+
+@media screen and (min-width:1616px) {
+    #cookiesAdv .in {
+        gap: 0 155px;
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+
+    #cookiesAdv .cookies-info-content {
+        padding-left: 120px;
+    }
+}
+
+@media print {
+    #cookiesAdv {
+        display: none
+    }
+}

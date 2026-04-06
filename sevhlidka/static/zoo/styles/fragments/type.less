@@ -1,0 +1,91 @@
+// Typography.less
+// Headings, body text, lists, code, and more for a versatile and durable typography system
+// ----------------------------------------------------------------------------------------
+
+
+// BODY TEXT
+// ---------
+
+p {
+  margin: 0;
+}
+
+
+// HEADINGS
+// --------
+
+h1, h2, h3, h4, h5, h6 {
+	#font > #family > .moderat();
+	font-style: normal;
+	font-weight: 700;
+	margin: 0;
+	padding:0;
+	text-rendering: optimizelegibility; // Fix the character spacing for headings
+}
+
+// LISTS
+// -----
+
+// Unordered and Ordered lists
+ul, ol {
+	padding: 0;
+	margin: 0;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+ul {
+	list-style: none;
+}
+ol {
+	list-style: none;
+}
+li {
+}
+
+// Description Lists
+dl {
+	margin-bottom: 0;
+}
+dt,
+dd {
+}
+dt {
+}
+dd {
+}
+
+// MISC
+// ----
+
+// Horizontal rules
+hr {
+	margin: 0;
+	border: 0;
+	height: 0;
+	padding: 0;
+}
+
+// Emphasis
+em {
+	font-style: italic;
+}
+
+
+// Abbreviations and acronyms
+abbr {
+	border: 0;
+	cursor: help;
+	text-decoration: none;
+}
+
+// Misc
+small {
+	font-size: 100%;
+}
+cite {
+	font-style: normal;
+}

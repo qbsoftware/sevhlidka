@@ -1,0 +1,47 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+html {
+	&.modal {
+		body {
+			overflow: hidden;
+		}
+	}
+}
+#modal {
+	bottom: 0;
+	left: 0;
+	overflow-y: scroll;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 9999;
+	
+	&:not(.modal_white) {
+		background-color: rgb(0, 0, 0);
+		background-color: rgba(0, 0, 0, .5);
+	}
+	&.modal_white {
+		background-color: rgb(255, 255, 255);
+		background-color: rgba(255, 255, 255, .75);
+	}
+}
+.modal_box {
+	.flex-left-center();
+	.flex-nowrap();
+	margin: 15px;
+	min-height: ~"calc(100% - 30px)";
+	width: auto;
+}
+.modal_content {
+	background-color: var(--white100);
+	.box-sizing(border-box);
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+}

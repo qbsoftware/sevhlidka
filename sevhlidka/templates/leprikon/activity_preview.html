@@ -1,0 +1,38 @@
+{% load i18n leprikon_tags sekizai_tags static thumbnail %}
+
+<article class="cross3_item card_clickable">
+    <div class="cross3_item_image">
+        {% if object.photo %}
+        <img alt="{{ object.photo.name }}" src="{% thumbnail object.photo 440x330 crop subject_location=object.photo.subject_location %}" />
+        {% else %}
+        <img alt="{% trans 'No photo' %}" src="{% static 'zoo/images/zastupny_obrazek.png' %}" />
+        {% endif %}
+    </div>
+    {% if object.all_age_groups or object.all_target_groups %}
+    <ul class="tags_list beige" aria-label="{% trans 'Tags' %}">
+        {% for group in object.all_age_groups %}
+        <li class="tags_item red">{{ group }}</li>
+        {% endfor %}
+        {% for group in object.all_target_groups %}
+        <li class="tags_item red">{{ group }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if object.start_date %}{# event #}
+        <time datetime="{{ object.start_date }}">{{ object.start_date }}{% if object.start_time %}, {{ object.start_time }}{% endif %}
+        {% if object.start_date != object.end_date %}
+            &ndash; {{ object.end_date }}{% if object.end_time %}, {{ object.end_time }}{% endif %}
+        {% elif object.end_time %}
+            &ndash; {{ object.end_time }}
+        {% endif %}
+        </time>
+    {% elif object.all_times or object.duration %}{# course or orderable #}
+        {% if object.all_times %}<time>{{ object.all_times | comma_separated }}</time>{% endif %}
+        {% if object.duration %}<time>{{ object.duration }}</time>{% endif %}
+    {% endif %}
+
+    <h2>
+        <a href="{{ object.get_absolute_url }}" class="card_link">{{ object.display_name }}</a>
+    </h2>
+</article>

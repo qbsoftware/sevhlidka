@@ -1,0 +1,74 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.pagination {
+	.flex-center-center();
+	.flex-nowrap();
+	gap: 4px;
+	padding-top: var(--space_40);
+}
+.pagination_item {
+	text-align: center;
+	
+	&.act {
+		background-color: var(--greenDark500);
+		.border-radius(24px);
+		color: var(--white100);
+		font-weight: 700;
+	}
+}
+.pagination_item_href {
+	border: 1px solid var(--greenDark500);
+	.border-radius(24px);
+	.box-sizing(border-box);
+	color: var(--greenDark500);
+	text-decoration: none;
+}
+.pagination_item_slash {
+	.font-size(16, 24px);
+	width: 24px;
+}
+
+
+
+@media screen and (max-width: 1023px), print {
+	.pagination {
+		height: 40px;
+	}
+	.pagination_item {
+		&.act {
+			.font-size(16, 40px);
+			.size(40px, 40px);
+		}
+	}
+	.pagination_item_href {
+		.font-size(16, 38px);
+		.size(40px, 40px);
+	}
+}
+@media screen and (min-width: 1024px) {
+	.pagination {
+		height: 48px;
+	}
+	.pagination_item {
+		&.act {
+			.font-size(16, 48px);
+			.size(48px, 48px);
+		}
+	}
+	.pagination_item_href {
+		.animate-bg-c();
+		.font-size(16, 46px);
+		.size(48px, 48px);
+		
+		&:hover {
+			background-color: var(--greenDark500);
+			color: var(--white100);
+		}
+	}
+}

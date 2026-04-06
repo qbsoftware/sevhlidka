@@ -1,0 +1,12 @@
+{% load i18n leprikon_tags %}
+{% if is_paginated %}
+<nav class="pagination" aria-label="Stránkování">
+    {% for page in page_obj.paginator.page_range %}
+    {% if page == page_obj.number %}
+    <span class="pagination_item act" aria-current="page">{{ page }}</span>
+    {% else %}
+    <a href="?{% query_string 'page' page %}" class="pagination_item pagination_item_href">{{ page }}</a>
+    {% endif %}
+    {% endfor %}
+</nav>
+{% endif %}

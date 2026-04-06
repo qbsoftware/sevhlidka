@@ -4,4 +4,6 @@ FROM leprikon/leprikon:$LEPRIKON_TAG
 LABEL maintainer="Jakub Dorňák <jakub.dornak@qbsoftware.cz>"
 
 # copy files
-COPY templates /app/templates
+COPY sevhlidka /app/sevhlidka
+
+ENV SITE_MODULE=sevhlidka

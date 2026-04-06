@@ -26,7 +26,7 @@ x-leprikon: &leprikon
     - ./media:/app/htdocs/media
     - ./static:/app/htdocs/static
     - ./run:/app/run
-    - ./templates:/app/templates
+    - ./sevhlidka:/app/sevhlidka
     - mysql:/var/run/mysqld
     - redis:/var/run/redis
 

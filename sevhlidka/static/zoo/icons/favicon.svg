@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(41.666666666666664,0,0,41.666666666666664,62.5,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="24"><svg viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.7455 10.6541C12.8933 4.42098 6.93477 -2.28034 0.326789 0.753293C0.116298 0.815241 -0.151763 1.07397 0.105504 1.27985C5.16989 4.40094 7.40613 11.6452 5.16809 17.7034C5.13031 17.871 5.18608 17.9493 5.27243 17.9858C5.30841 18.0787 5.37678 18.1388 5.50991 18.0951C10.8118 15.5388 17.1517 18.086 19.8827 23.8763C20.0788 24.1806 20.2803 23.8563 20.345 23.6231C22.9753 16.0836 17.1913 9.34403 11.7455 10.6541Z" fill="#1F824A"></path>
+</svg></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(41.666666666666664,0,0,41.666666666666664,62.5,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="24"><svg viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.7455 10.6541C12.8933 4.42098 6.93477 -2.28034 0.326789 0.753293C0.116298 0.815241 -0.151763 1.07397 0.105504 1.27985C5.16989 4.40094 7.40613 11.6452 5.16809 17.7034C5.13031 17.871 5.18608 17.9493 5.27243 17.9858C5.30841 18.0787 5.37678 18.1388 5.50991 18.0951C10.8118 15.5388 17.1517 18.086 19.8827 23.8763C20.0788 24.1806 20.2803 23.8563 20.345 23.6231C22.9753 16.0836 17.1913 9.34403 11.7455 10.6541Z" fill="#fff"></path>
+</svg></svg></g></g></svg></g></svg>

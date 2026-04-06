@@ -1,0 +1,132 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.header {
+	background-color: var(--white100);
+	
+	&:before,
+	&:after {
+		content: "";
+		left: 0;
+		position: absolute;
+	}
+	&:before {
+		background-color: var(--greenDark500);
+		top: 0;
+		z-index: -20;
+	}
+	&:after {
+		background-image: url(../../images/textures/wave2b.svg), url(../../images/textures/wave2.svg);
+		background-position: center bottom, center bottom;
+		bottom: 0;
+		z-index: -10;
+	}
+}
+
+
+
+@media screen and (max-width: 499px) {
+	.header {
+		&:before {
+			.size(100%, ~"calc(100% - 74px)");
+		}
+		&:after {
+			background-size: 883px 84px, 883px 84px;
+			.size(100%, 84px);
+		}
+	}
+	.header_box {
+		padding-bottom: 110px;
+	}
+}
+
+
+
+@media screen and (min-width: 500px) and (max-width: 767px) {
+	.header {
+		&:before {
+			.size(100%, ~"calc(100% - 99px)");
+		}
+		&:after {
+			background-size: 1152px 109px, 1152px 109px;
+			.size(100%, 109px);
+		}
+	}
+	.header_box {
+		padding-bottom: 120px;
+	}
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px), print {
+	.header {
+		&:before {
+			.size(100%, ~"calc(100% - 127px)");
+		}
+		&:after {
+			background-size: 1440px 137px, 1440px 137px;
+			.size(100%, 137px);
+		}
+	}
+	.header_box {
+		padding-bottom: 140px;
+	}
+}
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1299px) {
+	.header_box {
+		padding-bottom: 160px;
+	}
+}
+@media screen and (min-width: 1024px) and (max-width: 1499px) {
+	.header {
+		&:before {
+			.size(100%, ~"calc(100% - 145px)");
+		}
+		&:after {
+			background-size: 1632px 155px, 1632px 155px;
+			.size(100%, 155px);
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 1300px) and (max-width: 1499px) {
+	.header_box {
+		padding-bottom: 140px;
+	}
+}
+
+
+	
+@media screen and (max-width: 1499px), print {
+	.header {
+		&:after {
+			background-repeat: no-repeat, no-repeat;
+		}
+	}
+}
+@media screen and (min-width: 1500px) {
+	.header {
+		&:before {
+			.size(100%, ~"calc(100% - 172px)");
+		}
+		&:after {
+			background-repeat: no-repeat, repeat-x;
+			background-size: 1920px 182px, 1920px 182px;
+			.size(100%, 182px);
+		}
+	}
+	.header_box {
+		padding-bottom: 161px;
+	}
+}

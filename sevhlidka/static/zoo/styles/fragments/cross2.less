@@ -1,0 +1,300 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.wrapper_cross2 {
+	background-color: var(--white100);
+	
+	&.hp {
+		.in {
+			padding-top: var(--space_96);
+		}
+	}
+	.in {
+		padding-bottom: var(--space_96);
+		
+		& > h2 {
+			color: var(--green500);
+			.font-39-51();
+			
+			& + .cross2_list {
+				padding-top: var(--space_40);
+			}
+		}
+		& > .perex {
+			padding-top: var(--space_24);
+			
+			& + .cross2_list {
+				padding-top: var(--space_40);
+			}
+			p {
+				& + p {
+					margin-top: 24px;
+				}
+			}
+		}
+	}
+}
+.cross2_list {
+	display: grid;
+}
+.cross2_item {
+	a {
+		.animate-scale-img();
+		.border-radius(16px) !important;
+		display: block;
+		overflow: hidden;
+		position: relative;
+		text-decoration: none;
+		z-index: 1;
+	}
+	picture {
+		display: block;
+		width: 100%;
+	}
+	img {
+		display: block;
+		width: 100%;
+		
+		&.mask {
+			left: 0;
+			position: absolute;
+			width: 100%;
+			z-index: 10;
+		}
+	}
+}
+.cross2_item_content {
+	position: absolute;
+	z-index: 20;
+	
+	h2,
+	h3 {
+		color: var(--white100);
+		.font-25-33();
+	}
+}
+.cross2_btn {
+	padding-top: var(--space_40);
+	text-align: center;
+}
+
+
+
+@media screen and (max-width: 499px) {
+	.cross2_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			grid-template-columns: repeat(1, 1fr);
+			margin: 0 auto;
+			max-width: 350px;
+			
+			.cross2_item {
+				picture {
+					aspect-ratio: ~"350 / 583";
+				}
+				img {
+					&.mask {
+						top: 68%;
+					}
+				}
+			}
+		}
+		&.scroll_dark,
+		&.scroll_light {
+			.cross2_item {
+				width: 240px;
+				
+				picture {
+					aspect-ratio: ~"240 / 400";
+				}
+				img {
+					&.mask {
+						top: 64%;
+					}
+				}
+			}
+		}
+	}	
+}
+
+
+
+@media screen and (min-width: 500px) and (max-width: 639px) {
+	.cross2_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			grid-template-columns: repeat(2, 1fr);
+			
+			.cross2_item {
+				picture {
+					aspect-ratio: ~"299 / 498";
+				}
+				img {
+					&.mask {
+						top: 64%;
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width: 500px) and (max-width: 767px) {
+	.cross2_list {
+		&.scroll_dark,
+		&.scroll_light {
+			.cross2_item {
+				width: 300px;
+				
+				picture {
+					aspect-ratio: ~"300 / 500";
+				}
+				img {
+					&.mask {
+						top: 68%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 640px) and (max-width: 767px) {
+	.cross2_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			grid-template-columns: repeat(3, 1fr);
+			
+			.cross2_item {
+				picture {
+					aspect-ratio: ~"238 / 397";
+				}
+				img {
+					&.mask {
+						top: 60%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px), print {
+	.cross2_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			grid-template-columns: repeat(3, 1fr);
+			
+			.cross2_item {
+				picture {
+					aspect-ratio: ~"320 / 533";
+				}
+				img {
+					&.mask {
+						top: 64%;
+					}
+				}
+			}
+		}
+		&.scroll_dark,
+		&.scroll_light {
+			.cross2_item {
+				width: 320px;
+				
+				picture {
+					aspect-ratio: ~"320 / 533";
+				}
+				img {
+					&.mask {
+						top: 68%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 1023px), print {
+	.wrapper_cross2 {
+		.in {
+			& > h2,
+			& > .perex {
+				text-align: center;
+			}
+		}
+	}
+	.cross2_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			gap: 12px;
+		}
+		&.scroll_dark,
+		&.scroll_light {
+			.cross2_item {
+				& + .cross2_item {
+					margin-left: 12px;
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 1024px) {
+	.cross2_list {
+		gap: 16px;
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.cross2_item {
+		a {
+			&:hover {
+				h2,
+				h3 {
+					text-decoration: underline;
+				}
+			}
+		}
+		picture {
+			aspect-ratio: ~"348 / 580";
+		}
+	}
+}
+@media screen and (min-width: 1024px) and (max-width: 1499px) {
+	.cross2_item {
+		img {
+			&.mask {
+				top: 64%;
+			}
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 1499px), print {
+	.cross2_item_content {
+		bottom: 24px;
+		left: 24px;
+		right: 24px;
+	}
+}
+@media screen and (min-width: 1500px) {
+	.cross2_item {
+		img {
+			&.mask {
+				top: 68%;
+			}
+		}
+	}
+	.cross2_item_content {
+		bottom: 40px;
+		left: 40px;
+		right: 40px;
+	}
+}

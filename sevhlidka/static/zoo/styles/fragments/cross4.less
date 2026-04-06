@@ -1,0 +1,226 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.wrapper_cross4 {
+	background-color: var(--white100);
+	
+	&.hp {
+		.in {
+			padding-top: 40px;
+		}
+	}
+	&.beige {
+		background-color: var(--beige1);
+		
+		.in {
+			padding-top: var(--space_96);
+		}
+	}
+	.in {
+		padding-bottom: var(--space_96);
+		
+		& > h2 {
+			color: var(--green500);
+			.font-39-51();
+			
+			& + .cross4_list {
+				padding-top: var(--space_40);
+			}
+		}
+		& > .perex {
+			padding-top: var(--space_24);
+			
+			& + .cross4_list {
+				padding-top: var(--space_40);
+			}
+			p {
+				& + p {
+					margin-top: 24px;
+				}
+			}
+		}
+	}
+}
+.cross4_list {
+	display: grid;
+}
+.cross4_item {
+	.animate-scale-img();
+	
+	.tags_list {
+		padding-bottom: var(--space_16);
+	}
+	h2,
+	h3 {
+		.font-25-33();
+		
+		& + .time {
+			margin-top: 8px;
+		}
+		a {
+			.hd();
+		}
+	}
+	.time {
+		background-image:url(../../images/icons/calendar-green500.svg?v02);
+		background-repeat: no-repeat;
+		background-position: left top;
+		background-size: 24px 24px;
+		.font-size(16, 24px);
+		padding-left: 32px;
+		
+		& + .time {
+			margin-top: 8px;
+		}
+		.time_range {
+			white-space: nowrap;
+		}
+	}
+}
+.cross4_item_image {
+	.border-radius(16px) !important;
+	display: block;
+	margin-bottom: var(--space_24);
+	overflow: hidden;
+	
+	picture {
+		aspect-ratio: ~"1 / 1";
+		display: block;
+		width: 100%;
+	}
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+.cross4_btn {
+	padding-top: var(--space_40);
+	text-align: center;
+}
+
+
+
+@media screen and (max-width: 499px) {
+	.cross4_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			gap: 40px 0px;
+			grid-template-columns: repeat(1, 1fr);
+			margin: 0 auto;
+			max-width: 440px;
+		}
+		&.scroll_dark,
+		&.scroll_light {
+			.cross4_item {
+				width: 240px;
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 500px) and (max-width: 767px) {
+	.cross4_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			gap: 40px 24px;
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&.scroll_dark,
+		&.scroll_light {
+			.cross4_item {
+				width: 300px;
+			}
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 767px) {
+	.cross4_list {
+		&.scroll_dark,
+		&.scroll_light {
+			.cross4_item {
+				& + .cross4_item {
+					margin-left: 30px;
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 960px), print {
+	.cross4_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1023px), print {
+	.cross4_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			gap: 50px 40px;
+		}
+		&.scroll_dark,
+		&.scroll_light {
+			.cross4_item {
+				width: 320px;
+				
+				& + .cross4_item {
+					margin-left: 40px;
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 961px) and (max-width: 1023px) {
+	.cross4_list {
+		&:not(.scroll_dark):not(.scroll_light) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 1023px), print {
+	.wrapper_cross4 {
+		.in {
+			& > h2,
+			& > .perex {
+				text-align: center;
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 1024px) {
+	.cross4_list {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media screen and (min-width: 1024px) and (max-width: 1499px) {
+	.cross4_list {
+		gap: 60px;
+	}
+}
+
+
+
+@media screen and (min-width: 1500px) {
+	.cross4_list {
+		gap: 80px;
+	}
+}

@@ -1,5 +1,4 @@
-*.pyc
-*.pyo
+*.py[co]
 *.swp
 *~
 /data
@@ -10,4 +9,4 @@
 /redis*
 /run
 /static
-/uploads
+/venv

@@ -1,0 +1,81 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.wrapper_gallery {
+	background-color: var(--white100);
+	
+	.in {
+		padding-bottom: var(--space_96);
+	}
+}
+.gallery_list {
+	display: grid;
+}
+.gallery_item {
+	.border-radius(16px) !important;
+	.box-sizing(border-box);
+	min-width: 0;
+	overflow-wrap: anywhere;
+	text-decoration: none;
+	
+	picture {
+		display: block;
+		width: 100%;
+	}
+	img {
+		aspect-ratio: ~"1 / 1";
+		.border-radius(16px) !important;
+		display: block;
+		width: 100%;
+	}
+}
+
+
+
+@media screen and (max-width: 499px) {
+	.gallery_list {
+		gap: 12px;
+		grid-template-columns: repeat(2, 1fr)
+	}
+}
+
+
+
+@media screen and (min-width: 500px) and (max-width: 767px) {
+	.gallery_list {
+		gap: 12px;
+		grid-template-columns: repeat(3, 1fr)
+	}
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px), print {
+	.gallery_list {
+		gap: 24px;
+		grid-template-columns: repeat(3, 1fr)
+	}
+}
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1499px) {
+	.gallery_list {
+		gap: 24px;
+		grid-template-columns: repeat(4, 1fr)
+	}
+}
+
+
+
+@media screen and (min-width: 1500px) {
+	.gallery_list {
+		gap: 24px;
+		grid-template-columns: repeat(4, 1fr)
+	}
+}

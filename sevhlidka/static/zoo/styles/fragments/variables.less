@@ -1,0 +1,202 @@
+//	VARIABLES
+:root {
+	--focus: #0060df;
+	--base: #1F2023;
+	--white100: #ffffff;
+	--black100: #000000;
+	--greenDark1: #3A6858;
+	--greenDark2: #113F2F;
+	--greenDark500: #245745;
+	--green500: #1F824A;
+	--orange1: #E08545;
+	--orange2: #b65e21;
+	--orange300: #FFB468;
+	--beige1: #F9F0E4;
+	--beige400: #F9F0E4;
+	--beige500: #E8D9C4;
+	--blue500: #3D5C9C;
+	--pink1: #d45f5b;
+	--pink2: #FFE7E5;
+	--pink500: #E37873;
+	--grey100: #F2F2F3;
+	--grey200: #D6D6D9;
+	--grey300: #BBBBBF;
+	--grey500: #85858A;
+	--grey600: #6B6B6F;
+	
+	@media screen and (max-width: 767px) {
+		--space_16: 10px;
+		--space_24: 12px;
+		--space_40: 28px;
+		--space_56: 30px;
+		--space_64: 38px;
+		--space_80: 30px;
+		--space_96: 60px;
+		--space_116: 60px;
+		--space_120: 60px;
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px), print {
+		--space_16: 12px;
+		--space_24: 16px;
+		--space_40: 32px;
+		--space_56: 40px;
+		--space_64: 48px;
+		--space_80: 40px;
+		--space_96: 72px;
+		--space_116: 80px;
+		--space_120: 80px;
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1499px) {
+		--space_16: 14px;
+		--space_24: 20px;
+		--space_40: 36px;
+		--space_56: 48px;
+		--space_64: 56px;
+		--space_80: 50px;
+		--space_96: 84px;
+		--space_116: 100px;
+		--space_120: 100px;
+	}
+	@media screen and (min-width: 1500px) {
+		--space_16: 16px;
+		--space_24: 24px;
+		--space_40: 40px;
+		--space_56: 56px;
+		--space_64: 64px;
+		--space_80: 80px;
+		--space_96: 96px;
+		--space_116: 116px;
+		--space_120: 120px;
+	}
+}
+
+
+
+//	TEXTURY
+/*
+1500 -> 100%
+1024 -> 85%
+768 -> 75%
+500 -> 60%
+320 -> 46%
+*/
+
+
+
+//	FONTS
+.font-20-24() {
+	@media screen and (max-width: 1023px), print {
+		.font-size(18, 24px);
+	}
+	@media screen and (min-width: 1024px) {
+		.font-size(20, 24px);
+	}
+}
+.font-20-26() {
+	@media screen and (max-width: 1023px), print {
+		.font-size(18, 26px);
+	}
+	@media screen and (min-width: 1024px) {
+		.font-size(20, 26px);
+	}
+}
+.font-20-28() {
+	@media screen and (max-width: 1023px), print {
+		.font-size(18, 26px);
+	}
+	@media screen and (min-width: 1024px) {
+		.font-size(20, 28px);
+	}
+}
+.font-20-36() {
+	@media screen and (max-width: 1023px), print {
+		.font-size(18, 30px);
+	}
+	@media screen and (min-width: 1024px) {
+		.font-size(20, 36px);
+	}
+}
+.font-25-33() {
+	@media screen and (max-width: 767px) {
+		.font-size(22, 30px);
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px), print {
+		.font-size(23, 31px);
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1499px) {
+		.font-size(24, 32px);
+	}
+	@media screen and (min-width: 1500px) {
+		.font-size(25, 33px);
+	}
+}
+.font-25-36() {
+	@media screen and (max-width: 767px) {
+		.font-size(22, 34px);
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px), print {
+		.font-size(23, 35px);
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1499px) {
+		.font-size(24, 36px);
+	}
+	@media screen and (min-width: 1500px) {
+		.font-size(25, 36px);
+	}
+}
+.font-31-40() {
+	@media screen and (max-width: 767px) {
+		.font-size(22, 32px);
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px), print {
+		.font-size(25, 24px);
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1499px) {
+		.font-size(28, 38px);
+	}
+	@media screen and (min-width: 1500px) {
+		.font-size(31, 40px);
+	}
+}
+.font-39-51() {
+	@media screen and (max-width: 767px) {
+		.font-size(30, 40px);
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px), print {
+		.font-size(33, 44px);
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1499px) {
+		.font-size(36, 46px);
+	}
+	@media screen and (min-width: 1500px) {
+		.font-size(39, 51px);
+	}
+}
+.font-49-64() {
+	@media screen and (max-width: 767px) {
+		.font-size(31, 44px);
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px), print {
+		.font-size(37, 50px);
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1499px) {
+		.font-size(43, 56px);
+	}
+	@media screen and (min-width: 1500px) {
+		.font-size(49, 64px);
+	}
+}
+.font-61-80() {
+	@media screen and (max-width: 767px) {
+		.font-size(34, 46px);
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px), print {
+		.font-size(43, 56px);
+	}
+	@media screen and (min-width: 1024px) and (max-width: 1499px) {
+		.font-size(52, 64px);
+	}
+	@media screen and (min-width: 1500px) {
+		.font-size(61, 80px);
+	}
+}

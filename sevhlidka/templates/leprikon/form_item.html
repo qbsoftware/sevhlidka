@@ -1,0 +1,16 @@
+<div class="form_item_row">
+    <div class="form_item form_item_half {{ item.css_classes }}">
+        <div class="form_item_label">
+            <label for="{{ item.id_for_label }}">{{ item.label }}{% if item.field.required %}&nbsp;<em>*</em>{% endif %}</label>
+        </div>
+        <div class="form_item_input {% if item.errors %} alert alert-danger{% endif %}">
+            {{ item }}
+            {% for error in item.errors %}
+                <div class="form_item_error" role="alert">{{ error }}</div>
+            {% endfor %}
+            {% if item.help_text %}
+                <div class="form_item_desc">{{ item.help_text | safe }}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>

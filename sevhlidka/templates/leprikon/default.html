@@ -1,0 +1,233 @@
+{% load i18n cache cms_tags menu_tags leprikon_tags sekizai_tags static %}
+
+<!doctype html>
+<html lang="cs">
+    <head>
+        <title>{% block title %}{% endblock %} | SEV Hlídka</title>
+        <meta charset="utf-8">
+        <meta name="author" content="zoobrno.cz">
+        <meta name="owner" content="zoobrno.cz">
+        <meta name="copyright" content="zoobrno.cz">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{% block meta_description %}{% endblock %}">
+        <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+        <meta name="generator" content="Leprikón, django CMS" />
+        <link rel="canonical" href="{{ leprikon_url }}{{ request.path }}">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'leprikon/lib/bootstrap/css/bootstrap.min.css' %}"/>
+
+        <link rel="stylesheet" href="/static/zoo/styles/leprikon.css">
+        <link rel="stylesheet" href="/static/cookies/style.css" media="print" onload="this.media='all'">
+
+        <link rel="icon" type="image/png" href="/static/zoo/icons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="/static/zoo/icons/favicon.svg">
+        <link rel="shortcut icon" href="/static/zoo/icons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/zoo/icons/apple-touch-icon.png">
+        <meta name="apple-mobile-web-app-title" content="Zoo Brno" />
+        <link rel="manifest" href="/static/zoo/icons/site.webmanifest.json">
+
+        <meta property="og:title" content="{% block og_title %}{% endblock %}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ leprikon_url }}{{ request.path }}">
+        <meta property="og:image" content="{{ leprikon_url }}/static/images/share-zoo.png">
+        <meta property="og:description" content="{% block og_description %}{% endblock %}">
+        <meta property="og:locale" content="cs_CZ">
+
+        {% if backends %}
+        <!-- Bootstrap social -->
+        <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/font-awesome/css/font-awesome.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" media="all" href="{% static 'leprikon/lib/bootstrap-social.min.css' %}"/>
+        {% endif %}
+
+        {% render_block "css" %}
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{% static 'leprikon/lib/jquery.min.js' %}"></script>
+
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{% static 'leprikon/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+    </head>
+    <body>
+        {% cms_toolbar %}
+
+        <!-- SKIP ODKAZY -->
+        <nav class="accessibility" aria-label="Přeskočit na">
+            <ul>
+                <li><a href="#main">Přejít k obsahu</a></li>
+                <li><a href="#menu_main">Přejít k menu</a></li>
+                <!-- <li><a href="#button_search">Přejít k vyhledávání</a></li> -->
+            </ul>
+        </nav>
+
+        <!-- HLAVICKA -->
+        <header class="header">
+            <div class="header_box">
+                <div class="header_leftcol">
+                    <div class="header_logo">
+                        <a href="/">
+                            <img src="/static/images/logos/sev-hlidka-header.svg" alt="Jsme jedna smečka | SEV Hlídka">
+                        </a>
+                    </div>
+                    <div class="header_nav">
+                        {% show_menu 0 100 100 100 'menu.html' 'CMSMenu,LeprikonMenu' %}
+                    </div>
+                </div>
+                <div class="header_rightcol">
+                    <div class="header_btns">
+                        {% school_year_form %}
+                        <span class="dropdown">
+                            <button class="btn btn-default dropdown-toggle btn_40 btn_small btn_orange" type="button" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {% if request.user.is_authenticated %}{{ request.user.get_full_name | default:request.user.get_username }}
+                                {% else %}{% trans 'Anonymous user' %}{% endif %}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="user_menu">
+                                {% show_menu 0 100 100 100 'leprikon/user_menu.html' 'UserMenu' %}
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="header_menu">
+                        <button type="button"><span class="visually_hidden">Otevřít menu</span></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- HLAVNI OBSAH -->
+        <main id="main">
+            {% block breadcrumb %}
+            {% show_breadcrumb 0 'breadcrumb.html' %}
+            {% endblock %}
+            <div class="wrapper_cross3">
+                <div class="in {% if view.preview_template %}in_1440{% else %}in_952{% endif %}">
+                    {% include 'leprikon/modal_messages.html' %}
+                    <div class="article">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- PATICKA -->
+        <footer>
+            <div class="in in_1440">
+                <div class="footer_content">
+                    <div class="footer_content_contacts">
+                        <h2>Kontakt</h2>
+                        <div class="contact_title">
+                            Středisko ekologické výchovy Hlídka
+                        </div>
+                        <div class="contact_address">
+                            Hlídka&nbsp;209/4, 602&nbsp;00&nbsp;Brno
+                        </div>
+                        <div class="contact_phones_list">
+                            <div class="contact_phones_item">
+                                <h3>Kancelář</h3>
+                                <div class="phone">
+                                    <a href="tel:+420727971450">+420 727 971 450</a>
+                                </div>
+                            </div>
+                            <div class="contact_phones_item">
+                                <h3>Recepce</h3>
+                                <div class="phone">
+                                    <a href="tel:+420725840774">+420 725 840 774</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact_socials_list">
+                            <a href="https://www.facebook.com/sevhlidka/" class="contact_socials_item do_noveho_okna" rel="noopener noreferrer" target="_blank">
+                                <img src="/static/images/socials/fb-beige500.svg" alt="Facebook" loading="lazy">
+                            </a>
+                            <a href="https://www.instagram.com/sevhlidka/" class="contact_socials_item do_noveho_okna" rel="noopener noreferrer" target="_blank">
+                                <img src="/static/images/socials/ig-beige500.svg" alt="Instagram" loading="lazy">
+                            </a>
+                            <a href="https://www.youtube.com/c/zoobrno" class="contact_socials_item do_noveho_okna" rel="noopener noreferrer" target="_blank">
+                                <img src="/static/images/socials/yt-beige500.svg" alt="YouTube" loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_content_menu">
+                        <div class="footer_content_menu_col">
+                            <a href="https://is.zoobrno.cz/" class="sev_hlidka do_noveho_okna" rel="noopener noreferrer">
+                                <div class="sev_hlidka_title">Další vzdělávací aktivity nabízí</div>
+                                <div class="sev_hlidka_image">
+                                    <picture>
+                                        <img src="/static/images/logos/zoo-footer-2.svg" alt="Zoo Brno" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="sev_hlidka_btn">
+                                    <span class="btn_green_border btn_40 btn_icon_right btn_arrow_next">
+                                        <span>Dozvědět se více</span>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="footer_content_menu_col">
+                            <a href="https://www.sevhlidka.cz" class="sev_hlidka do_noveho_okna" rel="noopener noreferrer">
+                                <div class="sev_hlidka_title">Hlavní webová stránka</div>
+                                <div class="sev_hlidka_image">
+                                    <picture>
+                                        <img src="/static/images/logos/sev-hlidka-footer-2.svg" alt="Středisko ekologické výchovy Hlídka" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="sev_hlidka_btn">
+                                    <span class="btn_green_border btn_40 btn_icon_right btn_arrow_next">
+                                        <span>Dozvědět se více</span>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="footer_logo">
+                    <img src="/static/images/logos/zoo-footer.svg" alt="Jsme jedna smečka | Zoo Brno" loading="lazy">
+                </div>
+                <div class="footer_logo_list">
+                    <a href="https://www.waza.org" class="footer_logo_item do_noveho_okna" rel="noopener noreferrer">
+                        <img src="/static/images/logos/waza.svg" alt="WAZA | World Association of Zoos and Aquariums" loading="lazy">
+                    </a>
+                    <a href="https://www.eaza.net" class="footer_logo_item do_noveho_okna" rel="noopener noreferrer">
+                        <img src="/static/images/logos/eaza.svg" alt="EAZA | European Association of Zoos and Aquaria" loading="lazy">
+                    </a>
+                    <a href="https://ucszoo.com" class="footer_logo_item do_noveho_okna" rel="noopener noreferrer">
+                        <img src="/static/images/logos/ucszoo.svg" alt="UCSZOO | Unie zoologických zahrad" loading="lazy">
+                    </a>
+                    <a href="https://izea.net" class="footer_logo_item do_noveho_okna" rel="noopener noreferrer">
+                        <img src="/static/images/logos/ize.svg" alt="IZE | International Zoo Educators Association" loading="lazy">
+                    </a>
+                    <a href="https://species360.org" class="footer_logo_item do_noveho_okna" rel="noopener noreferrer">
+                        <img src="/static/images/logos/species360.svg" alt="Species360 | Global information serving conservation" loading="lazy">
+                    </a>
+                </div>
+                -->
+                <div class="footer_bottom">
+                    <div class="copy">&copy; 2026 Zoo Brno</div>
+                    <div class="footer_bottom_menu">
+                        <ul>
+                            <li><a href="https://zoobrno.cz/prohlaseni-o-pristupnosti">Prohlášení o přístupnosti</a></li>
+                            <li class="ca"><a href="https://zoobrno.cz/gdpr">Zpracování osobních údajů</a></li>
+                            <li>
+                                <a href="https://zoobrno.cz/" class="do_noveho_okna" rel="noopener noreferrer">
+                                    Webové stránky
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="create">
+                        Využíváme informační systém
+                        <a href="https://leprikon.cz/" class="do_noveho_okna" rel="noopener noreferrer">
+                            Leprikón
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="/static/zoo/scripts/jquery.js"></script>
+        <script src="/static/zoo/scripts/global.js"></script>
+        <script src="/static/cookies/js.js"></script>
+        {% render_block "js" %}
+    </body>
+</html>

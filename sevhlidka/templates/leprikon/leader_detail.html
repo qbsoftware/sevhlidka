@@ -1,0 +1,53 @@
+{% extends 'leprikon/default.html' %}
+{% load cms_tags i18n leprikon_tags menu_tags thumbnail %}
+
+{% block breadcrumb %}
+{% with title=object.full_name %}
+{% show_breadcrumb 0 'breadcrumb-detail.html' %}
+{% endwith %}
+{% endblock %}
+
+{% block content %}
+
+<h1>{% block title %}{{ object.full_name }}{% endblock %}</h1>
+
+<article class="detail detail-leader">
+    {% if object.photo %}
+    <div class="leader-photo image image-style-align-right">
+        <img class="" alt="{{ object.photo.name }}" src="{% thumbnail object.photo 440x330 %}" />
+    </div>
+    {% endif %}
+
+    {% if object.all_public_contacts %}
+    <h2>{% trans 'Contact' %}:</h2>
+    <ul>
+        {% for contact in object.all_public_contacts %}
+        <li class="contact contact-{{ contact.contact_type }}">{{ contact.contact }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {{ object.description | safe }}
+
+    {% for group in object.get_activities_by_types %}
+    {% if group.activities|filter_current_school_year:request.school_year %}
+    <h2>{{ group.activity_type.plural }}</h2>
+    <ul>
+    {% for activity in group.activities|filter_current_school_year:request.school_year %}
+    <li><a href="{{ activity.get_absolute_url }}">{{ activity.name }}</a></li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endfor %}
+
+    {% if object.page %}
+    <p>
+        {% trans 'More information' %}:
+        <a href="{{ object.page.get_absolute_url }}">
+            {{ object.page.get_title }}
+        </a>
+    </p>
+    {% endif %}
+</article>
+
+{% endblock %}

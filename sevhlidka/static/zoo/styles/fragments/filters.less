@@ -1,0 +1,75 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.filters_list {
+	padding-top: var(--space_40);
+	
+	ul {
+		.flex-left-stretch();
+		.flex-wrap();
+		gap: 8px;
+	}
+}
+.filters_item {
+	color: var(--greenDark500);
+	display: block;
+	text-decoration: none;
+	
+	&.act {
+		background-color: var(--greenDark500);
+		color: var(--white100);
+	}
+	&.remove {
+		background-image: url(../../images/icons/close-white.svg?v02);
+		background-repeat: no-repeat;
+		background-size: 18px 18px;
+	}
+}
+
+
+
+@media screen and (max-width: 1023px), print {
+	.filters_item {
+		border: 1px solid var(--greenDark500);
+		.border-radius(16px) !important;
+		.font-size(14, 22px);
+		padding: 4px 10px;
+		
+		&.remove {
+			background-position: right 10px center;
+			padding-right: 36px;
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 1024px) {
+	.filters_item {
+		.animate-bg-c();
+		border: 2px solid var(--greenDark500);
+		.border-radius(20px) !important;
+		.font-size(16, 24px);
+		padding: 6px 14px;
+		
+		&:hover {
+			background-color: var(--greenDark500);
+			color: var(--white100);
+		}
+		&.remove {
+			.animate-bg-b();
+			background-position: right 14px center;
+			padding-right: 40px;
+			
+			&:hover {
+				background-color: var(--green500);
+				border-color: var(--green500);
+			}
+		}
+	}
+}

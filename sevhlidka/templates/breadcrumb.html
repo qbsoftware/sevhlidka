@@ -1,0 +1,21 @@
+<div class="wrapper_breadcrumb">
+    <div class="in {% if view.preview_template %}in_1440{% else %}in_952{% endif %} breadcrumb_left">
+        <div class="breadcrumb_box">
+            <nav class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList" aria-label="Drobečková navigace">
+                <ol>
+                    {% for ance in ancestors %}
+                    <li class="breadcrumb_item breadcrumb_item_{% if forloop.first %}home{% elif forloop.last %}text{% else %}link{% endif %}"
+					    itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" {% if forloop.last %}aria-current="page"{% endif %}>
+                        {% if not forloop.last %}
+                        <a href="{{ ance.get_absolute_url }}" itemprop="item"><span itemprop="name">{{ ance.get_menu_title }}</span></a>
+                        {% else %}
+                        <span itemprop="name">{{ ance.get_menu_title }}</span>
+                        {% endif %}
+						<meta itemprop="position" content="{{ forloop.counter }}">
+                    </li>
+                    {% endfor %}
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>

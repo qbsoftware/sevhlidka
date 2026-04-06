@@ -1,0 +1,52 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.wrapper_heading {
+	background-color: var(--white100);
+	
+	.in {
+		padding-top: 12px;
+		
+		&.big_space {
+			padding-bottom: var(--space_64);
+		}
+		&.small_space {
+			padding-bottom: var(--space_40);
+		}
+	}
+	h1 {
+		.font-49-64();
+	}
+	.perex {
+		max-width: 952px;
+		padding-top: var(--space_40);
+		
+		p {
+			& + p {
+				margin-top: 24px;
+			}
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 1023px), print {
+	.wrapper_heading {
+		.perex {
+			.font-size(20, 32px);
+		}
+	}
+}
+@media screen and (min-width: 1024px) {
+	.wrapper_heading {
+		.perex {
+			.font-size(22, 34px);
+		}
+	}
+}

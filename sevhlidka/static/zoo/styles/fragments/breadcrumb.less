@@ -1,0 +1,93 @@
+@import (reference) "reset.less";
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "type.less";
+@import (reference) "utilities.less";
+
+
+
+.wrapper_breadcrumb {
+	background-color: var(--white100);
+	
+	.in {
+		.font-size(0, 0px);
+	}
+	.breadcrumb_center {
+		text-align: center;
+		
+		.breadcrumb_box {
+			display: inline-block;
+			text-align: left;
+		}
+	}
+}
+.breadcrumb {
+	padding-top: 30px;
+	
+	ol {
+		.flex-left-stretch();
+		.flex-wrap();
+		.font-size(14, 24px);
+		gap: 8px;
+	}
+}
+.breadcrumb_item_home,
+.breadcrumb_item_link {
+	background-image: url(../../images/icons/arrow-next-breadcrumb-base.svg?v02);
+	background-repeat: no-repeat;
+	background-size: 18px 18px;
+	background-position: right center;
+	padding-right: 26px;
+}
+.breadcrumb_item_home {
+	a {
+		display: block;
+		.size(51px, 24px);
+		text-decoration: none;
+		
+		&:focus-visible {
+			.border-radius(2px);
+			outline-offset: 0;
+			-webkit-box-shadow: 0 0 0 2px var(--focus);
+			box-shadow: 0 0 0 2px var(--focus);
+		}
+	}
+	span {
+		background-image: url(../../images/logos/sev-hlidka-breadcrumb.svg);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 51px 19px;
+		display: block;
+		.hidetext();
+		.size(51px, 24px);
+	}
+}
+.breadcrumb_item_link {
+	a {
+		.hd();
+	}
+}
+
+
+
+@media screen and (max-width: 767px) {
+	.wrapper_breadcrumb {
+		&.m_hide {
+			.hide();
+		}
+	}
+	.breadcrumb_item_home,
+	.breadcrumb_item_text {
+		.hide();
+	}
+	.breadcrumb_item_link {
+		&:not(.breadcrumb_item_back) {
+			.hide();
+		}
+		&.breadcrumb_item_back {
+			background-image: url(../../images/icons/arrow-prev-breadcrumb-base.svg?v02);
+			background-position: left center;
+			padding-left: 28px;
+		}
+	}
+}

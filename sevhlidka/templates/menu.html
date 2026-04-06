@@ -1,0 +1,46 @@
+<nav id="menu_main" class="header_nav_main" aria-label="Hlavní menu">
+    <ul>
+        {% for child in children %}
+        <li class="with_dm">
+            <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}"{% if child.selected %} class="act"{% endif %} data-dp="dp{{ child.id }}">{{ child.get_menu_title }}</a>
+            {% if child.children %}
+            <div id="dp{{ child.id }}" class="dropdownmenu" hidden>
+                <div class="dropdownmenu_content">
+                    <div class="dropdownmenu_main">
+                        <div class="card card_clickable">
+                            <div class="card_content">
+                                <div class="card_title">{{ child.get_menu_title }}</div>
+                                <div class="card_desc">
+                                    <!-- TODO: add description to menu items? -->
+                                </div>
+                                <div class="card_btn">
+                                    <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" class="card_link">Více</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdownmenu_sub">
+                        <ul>
+                            {% for subchild in child.children %}
+                            <li><a href="{{ subchild.attr.redirect_url|default:subchild.get_absolute_url }}">{{ subchild.get_menu_title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+
+<!-- DATA PRO MOBILNI MENU -->
+<script>var cats = [
+    {% for child in children %}{
+        "id": {{ child.id }},
+        "parent": {{ child.parent_id|default:0 }},
+        "name": "{{ child.get_menu_title|escapejs }}",
+        "url": "{{ child.attr.redirect_url|default:child.get_absolute_url }}"
+    }
+    {% if not forloop.last %},{% endif %}{% endfor %}
+];</script>

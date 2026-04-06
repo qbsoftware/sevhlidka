@@ -1,0 +1,107 @@
+{% load i18n leprikon_tags sekizai_tags thumbnail %}
+
+<article class="detail detail-{{ object.activity_type.model }} detail-{{ object.activity_type.slug }}">
+    <header>
+        {% for group in object.all_groups %}
+        <small class="tag" style="color: {{ group.font_color }}; border-color: {{ group.font_color }}; background-color: {{ group.color }}">
+            {{ group.name }}
+        </small>
+        {% endfor %}
+        {% if object.price_text %}<small>{{ object.price_text }}</small>{% endif %}
+        {% if request.user.is_staff or request.leader in object.all_leaders %}
+        <a class="btn btn-primary btn-xs" href="{% url_with_back 'leprikon:activity_update' object.activity_type.slug object.id %}">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            {% trans 'edit' %}
+        </a>
+        {% endif %}
+    </header>
+
+    {% if object.photo %}
+    <div class="image image-style-align-right">
+        <img class="right" alt="{{ object.photo.name }}" src="{% thumbnail object.photo 440x330 %}" />
+    </div>
+    {% endif %}
+
+    {% if object.start_date %}{# event #}
+    <p>
+        {% trans 'Start' %}: {{ object.start_date }}{% if objec.start_time %}, {{ objec.start_time }}{% endif %}
+        {% if object.start_date != object.end_date or objec.end_time %}
+            <br/>
+            {% trans 'End' %}:
+            {% if object.start_date != object.end_date %}
+                {{ object.end_date }}{% if objec.end_time %}, {{ objec.end_time }}{% endif %}
+            {% else %}
+                {{ objec.end_time }}
+            {% endif %}
+        {% endif %}
+        {% if object.place %}
+            <br/>
+            {% trans 'Place' %}: {{ object.place }}
+        {% endif %}
+    </p>
+    {% elif object.all_times or object.place or object.duration %}{# course or orderable #}
+    <p>
+        {% if object.all_times %}{% trans 'Time' %}: {{ object.all_times | comma_separated }}{% endif %}
+        {% if object.duration %}{% trans 'Duration' %}: {{ object.duration }}{% endif %}
+        {% if object.all_times or object.duration %}{% if object.place %}<br/>{% endif %}{% endif %}
+        {% if object.place %}{% trans 'Place' %}: {{ object.place }}{% endif %}
+    </p>
+    {% endif %}
+
+    {{ object.description | safe }}
+
+    {% if object.all_age_groups %}
+    <p>
+        {% if object.all_age_groups|length > 1 %}{% trans 'Age groups' %}{% else %}{% trans 'Age group' %}{% endif %}:
+        {{ object.all_age_groups|comma_separated }}
+    </p>
+    {% endif %}
+
+    {% if object.all_target_groups %}
+    <p>
+        {% if object.all_target_groups|length > 1 %}{% trans 'Target groups' %}{% else %}{% trans 'Target group' %}{% endif %}:
+        {{ object.all_target_groups|comma_separated }}
+    </p>
+    {% endif %}
+
+    {% if object.all_leaders %}
+    <p>
+        {% blocktrans count counter=object.all_leaders|length %}Led by{% plural %}Led by{% endblocktrans %}
+        {% for leader in object.all_leaders %}
+        <a href="{{ leader.get_absolute_url }}">{{ leader.full_name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    {% endif %}
+
+    {% if object.public_attachments %}
+    <p>
+        {% trans 'Attachments' %}:
+        {% for attachment in object.public_attachments %}
+        <br/><a href="{{ attachment.file.url }}">{{ attachment.file }}</a>
+        {% endfor %}
+    </p>
+    {% endif %}
+
+    {% if object.page %}
+    <p>
+        {% trans 'More information' %}:
+        <a href="{{ object.page.get_absolute_url }}">
+            {{ object.page.get_title }}
+        </a>
+    </p>
+    {% endif %}
+
+    <p>{% registration_links object %}</p>
+
+    {% if request.user.is_staff or request.leader in object.all_leaders %}
+    <div class="btn-group">
+        <a class="btn btn-sm btn-default" href="{% url_with_back 'leprikon:activity_registrations' object.activity_type.slug object.id %}">
+            {% trans 'registrations' %}
+            ({{ object.approved_registrations_count }}{% if object.unapproved_registrations_count %} + {{ object.unapproved_registrations_count }}{% endif %})
+        </a>
+        <a class="btn btn-sm btn-default" href="{% url 'leprikon:activity_journals' object.activity_type.slug object.id %}">
+            {% trans 'journals' %}
+        </a>
+    </div>
+    {% endif %}
+</article>

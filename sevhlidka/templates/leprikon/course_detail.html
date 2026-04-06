@@ -1,0 +1,16 @@
+{% extends 'leprikon/default.html' %}
+{% load i18n leprikon_tags menu_tags sekizai_tags %}
+
+{% block breadcrumb %}
+{% with title=course.name %}
+{% show_breadcrumb 0 'breadcrumb-detail.html' %}
+{% endwith %}
+{% endblock %}
+
+{% block content %}
+
+<h1>{% block title %}{{ course.name }}{% endblock %}</h1>
+
+{% include 'leprikon/activity_detail.html' %}
+
+{% endblock %}
