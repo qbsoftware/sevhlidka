@@ -2453,12 +2453,12 @@ cite {
   margin-top: 16px;
   padding-left: 0;
 }
-.article ul:not(.param_list):not(.download_list):not(.adoption_list) > li {
+.article ul:not(.param_list):not(.download_list):not(.adoption_list):not(.tags_list):not(.dropdown-menu) > li {
   padding-left: 36px;
   position: relative;
   z-index: 1;
 }
-.article ul:not(.param_list):not(.download_list):not(.adoption_list) > li:before {
+.article ul:not(.param_list):not(.download_list):not(.adoption_list):not(.tags_list):not(.dropdown-menu) > li:before {
   background-image: url(../../images/icons/fish-blue.svg?v02);
   background-repeat: no-repeat;
   background-position: center center;
@@ -2470,7 +2470,7 @@ cite {
   height: 24px;
   z-index: 1;
 }
-.article ul:not(.param_list):not(.download_list):not(.adoption_list) > li:not(:last-child) {
+.article ul:not(.param_list):not(.download_list):not(.adoption_list):not(.tags_list):not(.dropdown-menu) > li:not(:last-child) {
   margin-bottom: 16px;
 }
 .article ol {
