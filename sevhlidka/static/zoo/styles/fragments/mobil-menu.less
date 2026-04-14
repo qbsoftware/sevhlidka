@@ -43,9 +43,11 @@
 		text-decoration: none;
 	}
 	img {
-		aspect-ratio: ~"200 / 51";
 		display: block;
 		width: 100%;
+		
+		&.zoo {aspect-ratio: ~"200 / 51";}
+		&.sev {aspect-ratio: ~"214 / 43";}
 	}
 }
 .lightbox_header_language {
@@ -243,8 +245,11 @@
 	.lightbox_header {
 		gap: 0 40px;
 	}
-	.lightbox_header_leftcol {
-		width: 188px;
+	.lightbox_header_logo {
+		img {
+			&.zoo {height: 48px;}
+			&.sev {height: 38px; margin-bottom: 7px; margin-top: 3px;}
+		}
 	}
 }
 

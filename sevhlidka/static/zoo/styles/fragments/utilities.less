@@ -423,6 +423,11 @@
 			background-image: url(../../images/icons/arrow-next-white.svg?v02);
 		}
 	}
+	&.btn_centrum {
+		span {
+			background-image: url(../../images/icons/centrum-white.svg?v02);
+		}
+	}
 }
 .btn_orange {
 	background-color: var(--orange1);
@@ -462,6 +467,11 @@
 		span {
 			background-image: url(../../images/icons/email-white.svg?v02);
 		}
+	}
+	&.disabled {
+		background-color: var(--grey200);
+		color: var(--grey600);
+		cursor: default;
 	}
 }
 .btn_green_border {
@@ -784,10 +794,12 @@
 		}
 	}
 	.btn_orange {
-		.animate-bg();
-		
-		&:hover {
-			background-color: var(--orange2);
+		&:not(.disabled) {
+			.animate-bg();
+			
+			&:hover {
+				background-color: var(--orange2);
+			}
 		}
 	}
 	.btn_green_border {

@@ -7,8 +7,6 @@
 
 
 .wrapper_breadcrumb {
-	background-color: var(--white100);
-	
 	.in {
 		.font-size(0, 0px);
 	}
@@ -40,9 +38,28 @@
 	padding-right: 26px;
 }
 .breadcrumb_item_home {
+	&.zoo {
+		a {
+			.size(51px, 24px);
+		}
+		span {
+			background-image: url(../../images/logos/zoo-breadcrumb.svg?v02);
+			background-size: 51px 19px;
+			.size(51px, 24px);
+		}
+	}
+	&.sev {
+		a {
+			.size(40px, 24px);
+		}
+		span {
+			background-image: url(../../images/logos/sev-hlidka-breadcrumb.svg?v02);
+			background-size: 40px 19px;
+			.size(40px, 24px);
+		}
+	}
 	a {
 		display: block;
-		.size(51px, 24px);
 		text-decoration: none;
 		
 		&:focus-visible {
@@ -53,13 +70,10 @@
 		}
 	}
 	span {
-		background-image: url(../../images/logos/sev-hlidka-breadcrumb.svg);
 		background-position: center center;
 		background-repeat: no-repeat;
-		background-size: 51px 19px;
 		display: block;
 		.hidetext();
-		.size(51px, 24px);
 	}
 }
 .breadcrumb_item_link {
